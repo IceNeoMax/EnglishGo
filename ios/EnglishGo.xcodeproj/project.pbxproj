@@ -32,8 +32,8 @@
 		2D02E4C81E0B4AEC006451C7 /* libRCTWebSocket-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3E991DF850E9000B6D8A /* libRCTWebSocket-tvOS.a */; };
 		2D02E4C91E0B4AEC006451C7 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3EA31DF850E9000B6D8A /* libReact.a */; };
 		2DCD954D1E0B4F2C00145EB5 /* EnglishGoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* EnglishGoTests.m */; };
-		4D8B3B6AB6D338287355687C /* Pods_EnglishGoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC40CC8FE5CB812A0BBB79BD /* Pods_EnglishGoTests.framework */; };
 		4D3C4F89871346669B5946A3 /* libTextToSpeech.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F091A810F1D444508568E206 /* libTextToSpeech.a */; };
+		4D8B3B6AB6D338287355687C /* Pods_EnglishGoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC40CC8FE5CB812A0BBB79BD /* Pods_EnglishGoTests.framework */; };
 		5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		BD516AD71EF2715C0051597B /* ObjectRecognitionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD516AD61EF2715C0051597B /* ObjectRecognitionVC.swift */; };
@@ -41,6 +41,8 @@
 		BD516BE21EF27A370051597B /* ObjectRegconitionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD516BE11EF27A370051597B /* ObjectRegconitionCell.swift */; };
 		BD516BE51EF27AAA0051597B /* SuccessView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD516BE31EF27AAA0051597B /* SuccessView.xib */; };
 		BD516BE61EF27AAA0051597B /* SuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD516BE41EF27AAA0051597B /* SuccessView.swift */; };
+		BDDC72B61EF3D142004AF055 /* CustomRNViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDC72B51EF3D142004AF055 /* CustomRNViewManager.swift */; };
+		BDDC72D31EF3D49B004AF055 /* CustomRNView.m in Sources */ = {isa = PBXBuildFile; fileRef = BDDC72D21EF3D49B004AF055 /* CustomRNView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -263,9 +265,9 @@
 		259F32C86B2CE4F937B089DD /* Pods-EnglishGo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnglishGo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EnglishGo/Pods-EnglishGo.debug.xcconfig"; sourceTree = "<group>"; };
 		2D02E47B1E0B4A5D006451C7 /* EnglishGo-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "EnglishGo-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* EnglishGo-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "EnglishGo-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3F0E929B3DC24891B143D6BA /* TextToSpeech.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = TextToSpeech.xcodeproj; path = "../node_modules/react-native-tts/ios/TextToSpeech.xcodeproj"; sourceTree = "<group>"; };
 		48642052D851EC5717137E6A /* Pods-EnglishGo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnglishGo.release.xcconfig"; path = "Pods/Target Support Files/Pods-EnglishGo/Pods-EnglishGo.release.xcconfig"; sourceTree = "<group>"; };
 		5A1BE4D2AEA272C14C32F72D /* Pods-EnglishGo-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnglishGo-tvOSTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EnglishGo-tvOSTests/Pods-EnglishGo-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
-		3F0E929B3DC24891B143D6BA /* TextToSpeech.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = TextToSpeech.xcodeproj; path = "../node_modules/react-native-tts/ios/TextToSpeech.xcodeproj"; sourceTree = "<group>"; };
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		7C3EEFCD8E5E933C464DB8B8 /* Pods_EnglishGo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EnglishGo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -278,9 +280,12 @@
 		BD516BE11EF27A370051597B /* ObjectRegconitionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjectRegconitionCell.swift; sourceTree = "<group>"; };
 		BD516BE31EF27AAA0051597B /* SuccessView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SuccessView.xib; sourceTree = "<group>"; };
 		BD516BE41EF27AAA0051597B /* SuccessView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuccessView.swift; sourceTree = "<group>"; };
+		BDDC72B51EF3D142004AF055 /* CustomRNViewManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomRNViewManager.swift; sourceTree = "<group>"; };
+		BDDC72D11EF3D49B004AF055 /* CustomRNView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomRNView.h; sourceTree = "<group>"; };
+		BDDC72D21EF3D49B004AF055 /* CustomRNView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomRNView.m; sourceTree = "<group>"; };
 		D54D12FC3F6F5BDC8324E394 /* Pods-EnglishGoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnglishGoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-EnglishGoTests/Pods-EnglishGoTests.release.xcconfig"; sourceTree = "<group>"; };
-		FE67D9A481CF43E7856CB1E5 /* Pods-EnglishGoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnglishGoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EnglishGoTests/Pods-EnglishGoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		F091A810F1D444508568E206 /* libTextToSpeech.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libTextToSpeech.a; sourceTree = "<group>"; };
+		FE67D9A481CF43E7856CB1E5 /* Pods-EnglishGoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnglishGoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EnglishGoTests/Pods-EnglishGoTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -437,7 +442,10 @@
 				BD516AF31EF271DA0051597B /* AppDelegate.swift */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
+				BDDC72D11EF3D49B004AF055 /* CustomRNView.h */,
+				BDDC72D21EF3D49B004AF055 /* CustomRNView.m */,
 				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
+				BDDC72B51EF3D142004AF055 /* CustomRNViewManager.swift */,
 				BD516AD61EF2715C0051597B /* ObjectRecognitionVC.swift */,
 				BD516BE11EF27A370051597B /* ObjectRegconitionCell.swift */,
 				BD516BE31EF27AAA0051597B /* SuccessView.xib */,
@@ -548,8 +556,8 @@
 				BC40CC8FE5CB812A0BBB79BD /* Pods_EnglishGoTests.framework */,
 			);
 			name = Frameworks;
-            sourceTree = "<group>";
-        };
+			sourceTree = "<group>";
+		};
 		C2DA5E271EF2E12F0080D519 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -1140,8 +1148,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BDDC72B61EF3D142004AF055 /* CustomRNViewManager.swift in Sources */,
 				BD516BE61EF27AAA0051597B /* SuccessView.swift in Sources */,
 				BD516AF41EF271DA0051597B /* AppDelegate.swift in Sources */,
+				BDDC72D31EF3D49B004AF055 /* CustomRNView.m in Sources */,
 				BD516AD71EF2715C0051597B /* ObjectRecognitionVC.swift in Sources */,
 				BD516BE21EF27A370051597B /* ObjectRegconitionCell.swift in Sources */,
 			);
