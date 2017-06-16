@@ -38,6 +38,13 @@ export default class AR extends Component {
       <View>
         <View style={{height: 600, width: width, backgroundColor: 'blue'}}>
           <CustomRNView/>
+          <TouchableOpacity
+            style={{height: 40, width: 40, position: 'absolute', zIndex: 100, right: 16, top: 20}}
+            onPress={() => this.props.navigation.navigate('Home')}>
+            <Image
+              style={{}}
+              source={require('../images/button-x.png')}/>
+          </TouchableOpacity>
         </View>
       </View>
     )
