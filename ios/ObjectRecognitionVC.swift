@@ -17,6 +17,7 @@ import Kingfisher
 import SnapKit
 import FaveButton
 
+
 let SERVER_URL = "http://office.orm.vn:1002/detectobject"
 
 struct MTObject {
@@ -633,6 +634,10 @@ class ObjectRecognitionVC: UIViewController {
   
   func handleMenuButtonFromSuccessViewClicked(_ sender: UIButton) {
     
+  }
+  var bridge: RCTBridge!
+  @objc func sendNotificationDismissToReact() {
+    self.bridge.eventDispatcher().sendAppEvent( withName: "DismissEvent", body: "Woot!" )
   }
   
   // MARK:
