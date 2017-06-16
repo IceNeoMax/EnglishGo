@@ -53,7 +53,11 @@ enum ObjectMode {
 class ObjectRecognitionVC: UIViewController {
   
   var mode: ObjectMode = .exam
-  
+  var arrayOfVocabs: [String] = [] {
+    didSet{
+      self.titleLabel.text = self.arrayOfVocabs.count > 0 ? self.arrayOfVocabs.first! : ""
+    }
+  }
   var session: AVCaptureSession!
   var previewLayer: AVCaptureVideoPreviewLayer!
   let stillImageOutput = AVCaptureStillImageOutput()
@@ -82,12 +86,6 @@ class ObjectRecognitionVC: UIViewController {
   var listObjectLabels: [UILabel] = []
   var listObjectButtons: [UIButton] = []
   var listURIImage: [String] = []
-  var vocab: Vocab? {
-    didSet{
-      self.titleLabel.text = "Find \(self.vocab?.word.uppercased() ?? "")"
-    }
-  }
-  var lesson: Lesson?
   var currentIndex: Int = 0
   
   var titleLabel: UILabel = {
@@ -487,21 +485,9 @@ class ObjectRecognitionVC: UIViewController {
             width = width / ratio
             height = height / ratio
             if strongself.mode == .exam {
-              if strongself.vocab != nil {
-                if mtname == strongself.vocab!.word.lowercased() {
-                  // SUCCESS
-                  strongself.listObjects.append(MTObject.init(name: mtname, x: mtx1, y: mty1 , width: width, height: height, accuracy: mtaccuracy))
-                  // SHOW ANIMATION
-                  if strongself.currentIndex == 0{
-                    isSuccess = true
-                  }
-                } else if mtname == "pottedplant" {
-                  strongself.listObjects.append(MTObject.init(name: mtname, x: mtx1, y: mty1 , width: width, height: height, accuracy: mtaccuracy))
-                  if strongself.currentIndex == 1{
-                    isSuccess = true
-                  }
-                } else if mtname == ""{
-                  strongself.listObjects.append(MTObject.init(name: mtname, x: mtx1, y: mty1 , width: width, height: height, accuracy: mtaccuracy))
+              if strongself.currentIndex < strongself.arrayOfVocabs.count {
+                if name == strongself.arrayOfVocabs[strongself.currentIndex] {
+                  isSuccess = true
                 }
               }
             } else {
@@ -510,10 +496,10 @@ class ObjectRecognitionVC: UIViewController {
           }
           strongself.drawObjectLabels()
           if strongself.mode == .exam && isSuccess{
-            if strongself.currentIndex == 0 {
-              strongself.currentIndex = 1
+            if strongself.currentIndex < (strongself.arrayOfVocabs.count-1) {
+              strongself.currentIndex += 1
               strongself.showCheckmarkSuccess()
-              strongself.titleLabel.text = "Find \(strongself.lesson?.vocabs[1].word.uppercased() ?? "")"
+              strongself.titleLabel.text = "Find \(strongself.arrayOfVocabs[strongself.currentIndex].uppercased())"
               return
             }
             DispatchQueue.main.asyncAfter(deadline: .now() + 2.0, execute: {
@@ -608,9 +594,9 @@ class ObjectRecognitionVC: UIViewController {
   
   @IBAction func handleCloseButtonClicked(_ sender: UIButton) {
     if self.mode == .exam {
-      self.dismiss(animated: true, completion: nil)
+//      self.dismiss(animated: true, completion: nil)
     } else {
-      self.navigationController?.popViewController(animated: true)
+//      self.navigationController?.popViewController(animated: true)
     }
     
   }
@@ -619,6 +605,7 @@ class ObjectRecognitionVC: UIViewController {
   func showViewSuccess() {
     let successView = SuccessView.init(frame: CGRect.init(x: (self.view.frame.size.width - 252.0) / 2.0, y: (self.view.frame.size.height - 300.0) / 2.0, width: 252.0, height: 300.0))
     successView.parentController = self
+    successView.btnHome .addTarget(self, action: #selector(handleMenuButtonFromSuccessViewClicked(_:)), for: .touchUpInside)
     popupController = CNPPopupController(contents:[successView])
     popupController?.theme = CNPPopupTheme.default()
     popupController?.theme.popupStyle = .centered
@@ -642,6 +629,10 @@ class ObjectRecognitionVC: UIViewController {
     DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: {
       self.popupController?.dismiss(animated: true)
     })
+  }
+  
+  func handleMenuButtonFromSuccessViewClicked(_ sender: UIButton) {
+    
   }
   
   // MARK:

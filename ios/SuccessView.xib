@@ -4,12 +4,14 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SuccessView" customModule="AILearningEnglishForKids" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SuccessView" customModule="EnglishGo" customModuleProvider="target">
             <connections>
+                <outlet property="btnHome" destination="BRl-ka-SSt" id="jCI-gZ-1aU"/>
                 <outlet property="imageView" destination="CFi-k0-QMn" id="pPN-sF-ZVY"/>
                 <outlet property="view" destination="iN0-l3-epB" id="yNR-9S-kzP"/>
             </connections>
@@ -33,9 +35,6 @@
                     <rect key="frame" x="93" y="213" width="66" height="67"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <state key="normal" image="btn_home"/>
-                    <connections>
-                        <action selector="btnHomeClicked:" destination="-1" eventType="touchUpInside" id="0kU-Dj-cvO"/>
-                    </connections>
                 </button>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CFi-k0-QMn">
                     <rect key="frame" x="91" y="115" width="70" height="70"/>

@@ -12,6 +12,7 @@ let NOTI_SUCESS_LEVEL = "FinishLevel"
 class SuccessView: UIView {
     @IBOutlet var view: UIView!
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var btnHome: UIButton!
     weak var parentController: UIViewController?
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -43,15 +44,6 @@ class SuccessView: UIView {
         return nibView
     }
     @IBAction func btnHomeClicked(_ sender: Any) {
-        if ((parentController as? ObjectRecognitionVC) != nil) {
-            (parentController as? ObjectRecognitionVC)?.popupController?.dismiss(animated: true)
-            parentController?.dismiss(animated: true, completion: nil)
-            (parentController as? ObjectRecognitionVC)?.currentIndex -= 1
-            NotificationCenter.default.post(name: NSNotification.Name(rawValue: NOTI_SUCESS_LEVEL), object: nil)
-        }
-//        else {
-//            (parentController as? ExamOneViewController)?.popupController?.dismiss(animated: true)
-//            parentController?.navigationController?.popToRootViewController(animated: true)
-//        }
+        
     }
 }
