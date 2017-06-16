@@ -19,6 +19,7 @@ import LessonTitle from './component/LessonTitle'
 import LessonDetail from './component/LessonDetail'
 import Multisensory from './component/Multisensory'
 import LessonArray from './component/LessonArray'
+import AR from './component/AR'
 // const store = createStore();
 const { width, height } = Dimensions.get("window");
 
@@ -52,6 +53,9 @@ export default class HomeScreen extends Component {
               style={styles.centerItemButton}
               source={require('./images/button-main2.png')}/>
           </TouchableOpacity>
+          <TouchableOpacity onPress={() => navigate('AR')}>
+            <Text>AR</Text>
+          </TouchableOpacity>
         </View>
       </Image>
       </View>
@@ -68,7 +72,8 @@ const EnglishGo = StackNavigator({
   LessonDetail: {
     screen: LessonArray,
     gesturesEnabled: false
-  }
+  },
+  AR: {screen: AR}
 });
 const styles = StyleSheet.create({
   container:{
