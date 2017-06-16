@@ -18,7 +18,7 @@ const { width, height } = Dimensions.get("window");
 let width3= 9/10*width;
 let height3= 3/4*height;
 let randomWords=[];
-let listWords = ["airplane","apple","banana","bear","bird","book","bus","car","cake","cat"]
+let listWords = ["airplane","boat","bicycle","bear","bird","dog","bus","car","motorcycle","cat"]
 export default class Exams extends Component {
   static navigationOptions = {
     header:null,
