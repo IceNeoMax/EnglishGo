@@ -19,7 +19,7 @@ import Tts from 'react-native-tts'
 import { StackNavigator,NavigationActions } from 'react-navigation';
 import HomeScreen from '../App';
 import ScrollableTabView, { ScrollableTabBar, } from 'react-native-scrollable-tab-view';
-var CustomRNView = requireNativeComponent('ObjectRecognitionVC',null)
+var CustomRNView = requireNativeComponent('CustomRNView',null)
 
 import LessonDetail from './LessonDetail'
 
@@ -36,7 +36,6 @@ export default class AR extends Component {
   render() {
     return(
       <View>
-        <Text>ABC</Text>
         <View style={{height: 600, width: width, backgroundColor: 'blue'}}>
           <CustomRNView/>
         </View>
