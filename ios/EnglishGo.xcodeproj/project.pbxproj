@@ -657,11 +657,7 @@
 						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
 					13B07F861A680F5B00A75B9A = {
-<<<<<<< HEAD
 						DevelopmentTeam = W3XD4D4DH2;
-=======
-						LastSwiftMigration = 0830;
->>>>>>> origin/master
 					};
 					2D02E47A1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -1258,15 +1254,12 @@
 			baseConfigurationReference = 259F32C86B2CE4F937B089DD /* Pods-EnglishGo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-<<<<<<< HEAD
         ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
         ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
         ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
         ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
         ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-=======
-				CLANG_ENABLE_MODULES = YES;
->>>>>>> origin/master
+
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = W3XD4D4DH2;
@@ -1296,15 +1289,11 @@
 			baseConfigurationReference = 48642052D851EC5717137E6A /* Pods-EnglishGo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-<<<<<<< HEAD
         ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
         ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
         ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
         ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
         ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-=======
-				CLANG_ENABLE_MODULES = YES;
->>>>>>> origin/master
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = W3XD4D4DH2;
 				HEADER_SEARCH_PATHS = (
