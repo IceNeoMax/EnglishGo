@@ -10,4 +10,5 @@
 
 @interface CustomRNView : RCTView
 @property (nonatomic, assign) NSString *message;
+@property (nonatomic, assign) NSArray *vocabs;
 @end

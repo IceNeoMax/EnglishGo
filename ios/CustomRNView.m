@@ -11,4 +11,5 @@
 
 @interface RCT_EXTERN_MODULE(CustomRNViewManager, RCTViewManager)
 RCT_EXPORT_VIEW_PROPERTY(message, NSString)
+RCT_EXPORT_VIEW_PROPERTY(vocabs, NSArray);
 @end

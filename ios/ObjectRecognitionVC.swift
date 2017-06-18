@@ -52,11 +52,16 @@ enum ObjectMode {
 }
 
 class ObjectRecognitionVC: UIViewController {
-  
+  @objc(addEvent:location:date:)
+  func addEvent(name: String, location: String, date: NSNumber) -> Void {
+    // Date is ready to use!
+  }
+
   var mode: ObjectMode = .exam
   var arrayOfVocabs: [String] = [] {
     didSet{
       self.titleLabel.text = self.arrayOfVocabs.count > 0 ? self.arrayOfVocabs.first! : ""
+      print("Da SET DUOC VOCABS")
     }
   }
   var session: AVCaptureSession!

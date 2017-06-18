@@ -32,6 +32,7 @@
 		2D02E4C81E0B4AEC006451C7 /* libRCTWebSocket-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3E991DF850E9000B6D8A /* libRCTWebSocket-tvOS.a */; };
 		2D02E4C91E0B4AEC006451C7 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3EA31DF850E9000B6D8A /* libReact.a */; };
 		2DCD954D1E0B4F2C00145EB5 /* EnglishGoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* EnglishGoTests.m */; };
+		3CED9F661EF529AB0017C83A /* ObjectRecognitionBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CED9F651EF529AB0017C83A /* ObjectRecognitionBridge.m */; };
 		4D3C4F89871346669B5946A3 /* libTextToSpeech.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F091A810F1D444508568E206 /* libTextToSpeech.a */; };
 		4D8B3B6AB6D338287355687C /* Pods_EnglishGoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC40CC8FE5CB812A0BBB79BD /* Pods_EnglishGoTests.framework */; };
 		5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
@@ -265,6 +266,8 @@
 		259F32C86B2CE4F937B089DD /* Pods-EnglishGo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnglishGo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EnglishGo/Pods-EnglishGo.debug.xcconfig"; sourceTree = "<group>"; };
 		2D02E47B1E0B4A5D006451C7 /* EnglishGo-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "EnglishGo-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* EnglishGo-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "EnglishGo-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3CED9F641EF529AB0017C83A /* ObjectRecognitionBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjectRecognitionBridge.h; sourceTree = "<group>"; };
+		3CED9F651EF529AB0017C83A /* ObjectRecognitionBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjectRecognitionBridge.m; sourceTree = "<group>"; };
 		3F0E929B3DC24891B143D6BA /* TextToSpeech.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = TextToSpeech.xcodeproj; path = "../node_modules/react-native-tts/ios/TextToSpeech.xcodeproj"; sourceTree = "<group>"; };
 		48642052D851EC5717137E6A /* Pods-EnglishGo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnglishGo.release.xcconfig"; path = "Pods/Target Support Files/Pods-EnglishGo/Pods-EnglishGo.release.xcconfig"; sourceTree = "<group>"; };
 		5A1BE4D2AEA272C14C32F72D /* Pods-EnglishGo-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnglishGo-tvOSTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EnglishGo-tvOSTests/Pods-EnglishGo-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -445,6 +448,8 @@
 				BDDC72D11EF3D49B004AF055 /* CustomRNView.h */,
 				BDDC72D21EF3D49B004AF055 /* CustomRNView.m */,
 				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
+				3CED9F641EF529AB0017C83A /* ObjectRecognitionBridge.h */,
+				3CED9F651EF529AB0017C83A /* ObjectRecognitionBridge.m */,
 				BDDC72B51EF3D142004AF055 /* CustomRNViewManager.swift */,
 				BD516AD61EF2715C0051597B /* ObjectRecognitionVC.swift */,
 				BD516BE11EF27A370051597B /* ObjectRegconitionCell.swift */,
@@ -665,7 +670,7 @@
 						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
 					13B07F861A680F5B00A75B9A = {
-						DevelopmentTeam = TXU6BDYHDH;
+						DevelopmentTeam = 4Y74WWZQUR;
 					};
 					2D02E47A1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -1153,6 +1158,7 @@
 				BD516AF41EF271DA0051597B /* AppDelegate.swift in Sources */,
 				BDDC72D31EF3D49B004AF055 /* CustomRNView.m in Sources */,
 				BD516AD71EF2715C0051597B /* ObjectRecognitionVC.swift in Sources */,
+				3CED9F661EF529AB0017C83A /* ObjectRecognitionBridge.m in Sources */,
 				BD516BE21EF27A370051597B /* ObjectRegconitionCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1267,13 +1273,13 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
-				DEVELOPMENT_TEAM = TXU6BDYHDH;
+				DEVELOPMENT_TEAM = 4Y74WWZQUR;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-tts/ios/**",
 				);
 				INFOPLIST_FILE = EnglishGo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -1296,13 +1302,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = TXU6BDYHDH;
+				DEVELOPMENT_TEAM = 4Y74WWZQUR;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-tts/ios/**",
 				);
 				INFOPLIST_FILE = EnglishGo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
