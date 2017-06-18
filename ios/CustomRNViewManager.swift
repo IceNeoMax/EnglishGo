@@ -33,4 +33,11 @@ extension UIView {
     }
     return nil
   }
+  
+  func setVocabs(_ vocabs: NSArray) {
+    let vc = self.parentViewController
+    if let orVC = vc, ((orVC as? ObjectRecognitionVC) != nil) {
+      (orVC as! ObjectRecognitionVC).arrayOfVocabs = vocabs.map({return $0 as! String})
+    }
+  }
 }

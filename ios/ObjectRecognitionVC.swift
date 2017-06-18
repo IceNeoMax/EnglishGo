@@ -60,8 +60,7 @@ class ObjectRecognitionVC: UIViewController {
   var mode: ObjectMode = .exam
   var arrayOfVocabs: [String] = [] {
     didSet{
-      self.titleLabel.text = self.arrayOfVocabs.count > 0 ? self.arrayOfVocabs.first! : ""
-      print("Da SET DUOC VOCABS")
+      self.titleLabel.text = self.arrayOfVocabs.count > 0 ? "Find \(self.arrayOfVocabs.first!)" : ""
     }
   }
   var session: AVCaptureSession!
@@ -103,7 +102,7 @@ class ObjectRecognitionVC: UIViewController {
   }()
   var btnRemove: UIButton = {
     let btn = UIButton.init()
-    btn.setImage(#imageLiteral(resourceName: "remove"), for: .normal)
+//    btn.setImage(#imageLiteral(resourceName: "remove"), for: .normal)
     return btn
   }()
   var activityIndicatorView: NVActivityIndicatorView?
@@ -132,7 +131,7 @@ class ObjectRecognitionVC: UIViewController {
       make.top.equalTo(self.view.snp.top).offset(20)
       make.width.height.equalTo(30)
     }
-    btnRemove.addTarget(self, action: #selector(handleCloseButtonClicked(_:)), for: .touchUpInside)
+//    btnRemove.addTarget(self, action: #selector(handleCloseButtonClicked(_:)), for: .touchUpInside)
     self.view.bringSubview(toFront: btnRemove)
     
     //
@@ -492,7 +491,7 @@ class ObjectRecognitionVC: UIViewController {
             height = height / ratio
             if strongself.mode == .exam {
               if strongself.currentIndex < strongself.arrayOfVocabs.count {
-                if name == strongself.arrayOfVocabs[strongself.currentIndex] {
+                if name?.uppercased() == strongself.arrayOfVocabs[strongself.currentIndex].uppercased() {
                   isSuccess = true
                 }
               }

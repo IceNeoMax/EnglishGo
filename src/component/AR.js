@@ -37,7 +37,7 @@ export default class AR extends Component {
     return(
       <View>
         <View style={{height: 600, width: width, backgroundColor: 'blue'}}>
-          <CustomRNView/>
+          <CustomRNView vocabs={["apple", "book"]}/>
           <TouchableOpacity
             style={{height: 40, width: 40, position: 'absolute', zIndex: 100, right: 16, top: 20}}
             onPress={() => this.props.navigation.navigate('Home')}>

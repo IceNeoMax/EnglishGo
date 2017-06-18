@@ -9,6 +9,6 @@
 #import <React/RCTView.h>
 
 @interface CustomRNView : RCTView
-@property (nonatomic, assign) NSString *message;
-@property (nonatomic, assign) NSArray *vocabs;
+@property (nonatomic, strong) NSString *serverURL;
+@property (nonatomic, strong) NSArray *vocabs;
 @end
