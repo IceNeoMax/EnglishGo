@@ -56,7 +56,9 @@ class ObjectRecognitionVC: UIViewController {
   func addEvent(name: String, location: String, date: NSNumber) -> Void {
     // Date is ready to use!
   }
-
+  var timer:Timer?
+  var isProcessing: Bool = false
+  
   var mode: ObjectMode = .exam
   var arrayOfVocabs: [String] = [] {
     didSet{
@@ -68,10 +70,11 @@ class ObjectRecognitionVC: UIViewController {
   let stillImageOutput = AVCaptureStillImageOutput()
   var readyTakePicture = false
   var btnTakePicture: UIButton = {
-    var btn = UIButton.init()
-    //        btn .setTitle("Click", for: .normal)
-    btn.setImage(#imageLiteral(resourceName: "takepicture"), for: .normal)
+    var btn = UIButton.init(frame: .zero)
+            btn.setTitle("Click", for: .normal)
+//    btn.setImage(#imageLiteral(resourceName: "takepicture"), for: .normal)
     btn.addTarget(self, action: #selector(btnTakePictureClicked(_:)), for: .touchUpInside)
+    btn.isUserInteractionEnabled = true
     return btn
   }()
   var collectionView: UICollectionView = {
@@ -114,6 +117,11 @@ class ObjectRecognitionVC: UIViewController {
     return btn
   }()
   
+  deinit {
+    timer?.invalidate()
+    timer = nil
+  }
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     self.navigationController?.isNavigationBarHidden = true
@@ -132,7 +140,16 @@ class ObjectRecognitionVC: UIViewController {
       make.width.height.equalTo(30)
     }
 //    btnRemove.addTarget(self, action: #selector(handleCloseButtonClicked(_:)), for: .touchUpInside)
-    self.view.bringSubview(toFront: btnRemove)
+//    self.view.bringSubview(toFront: btnRemove)
+    
+    self.view.addSubview(self.btnTakePicture)
+    self.btnTakePicture.snp.makeConstraints { (make) in
+      make.top.equalTo(self.view).offset(250)
+      make.centerX.equalTo(self.view)
+      make.height.width.equalTo(50)
+    }
+    self.view.bringSubview(toFront: btnTakePicture)
+    
     
     //
     session = AVCaptureSession()
@@ -197,15 +214,16 @@ class ObjectRecognitionVC: UIViewController {
     // Begin the capture session.
     session.startRunning()
     // Do any additional setup after loading the view, typically from a nib.
-    self.view.addSubview(self.btnTakePicture)
     
+
     self.collectionView.dataSource = self
     self.collectionView.delegate = self
     self.view.addSubview(self.collectionView)
     self.setupConstraint()
     
-    self.view.bringSubview(toFront: btnRemove)
+//    self.view.bringSubview(toFront: btnRemove)
     self.view.bringSubview(toFront: titleLabel)
+    self.view.bringSubview(toFront: btnTakePicture)
     
     activityIndicatorView = NVActivityIndicatorView(frame: CGRect.init(x: self.view.center.x, y: self.view.center.y, width: 30, height: 30), type: NVActivityIndicatorType(rawValue: 29)!)
     self.view.addSubview(activityIndicatorView!)
@@ -231,11 +249,7 @@ class ObjectRecognitionVC: UIViewController {
   }
   
   func setupConstraint() {
-    self.btnTakePicture.snp.makeConstraints { (make) in
-      make.bottom.equalToSuperview().offset(-100)
-      make.centerX.equalToSuperview()
-      make.height.width.equalTo(100)
-    }
+ 
     
     self.collectionView.snp.makeConstraints { (make) in
       make.leading.bottom.trailing.equalTo(self.view)
@@ -248,6 +262,7 @@ class ObjectRecognitionVC: UIViewController {
     if (session?.isRunning == false) {
       session.startRunning()
     }
+    
   }
   
   override func viewWillDisappear(_ animated: Bool) {
@@ -256,6 +271,18 @@ class ObjectRecognitionVC: UIViewController {
       session.stopRunning()
     }
   }
+  
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
+    timer = Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(sendPictureToSever), userInfo: nil, repeats: true)
+  }
+  
+  override func viewDidDisappear(_ animated: Bool) {
+    super.viewDidDisappear(animated)
+    self.timer?.invalidate()
+  }
+  
+  
   
   override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
     super.viewWillTransition(to: size, with: coordinator)
@@ -420,6 +447,27 @@ class ObjectRecognitionVC: UIViewController {
     }
   }
   
+  func sendPictureToSever() {
+    if(!isProcessing) {
+      activityIndicatorView?.isHidden = false
+      activityIndicatorView?.startAnimating()
+      if let videoConnection = stillImageOutput.connection(withMediaType: AVMediaTypeVideo) {
+        stillImageOutput.captureStillImageAsynchronously(from: videoConnection) {
+          (imageDataSampleBuffer, error) -> Void in
+          let imageData = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(imageDataSampleBuffer)
+          let image = UIImage(data: imageData!)
+          //                UIImageWriteToSavedPhotosAlbum(image!, self, #selector(self.image(_:didFinishSavingWithError:contextInfo:)), nil)
+          print("Upload image")
+          if image != nil {
+            print("Start Upload image")
+            self.upload(image!)
+          }
+        }
+      }
+    }
+
+  }
+  
   // MARK: Show animation
   func loadAnimationNamed(named:String, atFrame frame: CGRect) {
     let laAnimation = LOTAnimationView.init(name: named)
@@ -435,6 +483,7 @@ class ObjectRecognitionVC: UIViewController {
   }
   // MARK: API Server
   func upload(_ image: UIImage) {
+    isProcessing = true
     let myimage = self.imageWithImage(sourceImage: image, scaleFactor: 0.6)
     let imgData = UIImageJPEGRepresentation(myimage, 1)!
     let parameters = ["name": ""]
@@ -510,10 +559,13 @@ class ObjectRecognitionVC: UIViewController {
             DispatchQueue.main.asyncAfter(deadline: .now() + 2.0, execute: {
               strongself.showViewSuccess()
             })
+          }else {
+            strongself.isProcessing = false
           }
         }
       case .failure(let encodingError):
         print(encodingError)
+        strongself.isProcessing = false
       }
     }
   }
@@ -616,6 +668,10 @@ class ObjectRecognitionVC: UIViewController {
     popupController?.theme.popupStyle = .centered
     popupController?.theme.backgroundColor = .clear
     popupController?.present(animated: true)
+    DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
+      self.popupController?.dismiss(animated: true)
+      self.isProcessing = true
+    })
   }
   
   func showCheckmarkSuccess() {
@@ -633,6 +689,7 @@ class ObjectRecognitionVC: UIViewController {
     popupController?.present(animated: true)
     DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: {
       self.popupController?.dismiss(animated: true)
+      self.isProcessing = false
     })
   }
   
