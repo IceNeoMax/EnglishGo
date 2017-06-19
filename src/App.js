@@ -53,9 +53,9 @@ export default class HomeScreen extends Component {
               style={styles.centerItemButton}
               source={require('./images/button-main2.png')}/>
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => navigate('AR')}>
+          {/*<TouchableOpacity onPress={() => navigate('AR')}>
             <Text>AR</Text>
-          </TouchableOpacity>
+          </TouchableOpacity>*/}
         </View>
       </Image>
       </View>

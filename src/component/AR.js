@@ -33,14 +33,37 @@ export default class AR extends Component {
     //gesturesEnabled: false
   };
   
+  constructor(props) {
+    super(props)
+    this.state = {
+      arrayLesson: props.arrayLesson,
+      view: false
+    }
+    
+  }
+  
+  componentWillMount() {
+    this.setState({
+      view: true
+    })
+  }
+  
   render() {
+    let background = <Image style={{width, height}} source={require('../images/background.png')}/>
+    let cameraView = (this.state.view) ? <CustomRNView vocabs={this.state.arrayLesson}/> : background
     return(
       <View>
         <View style={{height: 600, width: width, backgroundColor: 'blue'}}>
-          <CustomRNView vocabs={["apple", "book"]}/>
+          {cameraView}
           <TouchableOpacity
             style={{height: 40, width: 40, position: 'absolute', zIndex: 100, right: 16, top: 20}}
-            onPress={() => this.props.navigation.navigate('Home')}>
+            onPress={() => {
+              this.setState({
+                arrayLesson: [],
+                view: false
+              })
+              this.props.navigation.navigate('Lessons')
+            }}>
             <Image
               style={{}}
               source={require('../images/button-x.png')}/>

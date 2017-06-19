@@ -35,7 +35,8 @@ export default class LessonDetail extends Component {
       firstPage: null,
       secondPage: null,
       thirdPage: null,
-      title: ''
+      title: '',
+      arrayLesson: []
     }
     
   }
@@ -162,7 +163,6 @@ export default class LessonDetail extends Component {
       case '30':
         lessonTitle = 'banana'
     }
-    console.log(lessonTitle)
     let firstPage = this.randomIntFromInterval(1, 10)
     let secondPage = this.randomIntFromIntervalWithoutFirstValue(1, 10, firstPage)
     let thirdPage = this.randomIntFromIntervalWithout2FirstValue(1, 10, firstPage, secondPage)
@@ -172,6 +172,11 @@ export default class LessonDetail extends Component {
       thirdPage: thirdPage,
       title: lessonTitle
     })
+    if (this.props.arrayLesson) {
+      this.setState({
+        arrayLesson: this.props.arrayLesson
+      })
+    }
     setTimeout(() => {Tts.speak(lessonTitle)}, 500)
     //console.log(images[passedProps.lesson][1])
   }
@@ -223,8 +228,23 @@ export default class LessonDetail extends Component {
   }
   
   renderPage3() {
+    let ARButton = null
+    if (this.state.arrayLesson.length != 0) {
+      ARButton = <TouchableOpacity
+                    style={{position: 'absolute', top: 20, zIndex: 10, right: 40, width: 30, height: 30}}
+                    onPress={() => this.props.navigation.navigate('AR', {
+                      arrayLesson: this.state.arrayLesson
+                    })}>
+                    <Image
+                      resizeMode="contain"
+                      style={{width: 30, height: 30}}
+                      source={require('../images/button-play.png')}/>
+                  </TouchableOpacity>
+    }
+    
     return(
       <View style={{height: '100%', alignItems: 'center', justifyContent: 'center'}}>
+        {ARButton}
         <TouchableOpacity
           style={{position: 'absolute', top: 20, zIndex: 10, right: 10, width: 30, height: 30}}
           onPress={() => this.props.navigation.navigate('Lessons')}>

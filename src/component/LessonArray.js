@@ -176,6 +176,7 @@ export default class LessonArray extends Component {
   renderLesson3() {
     return(
       <LessonDetail
+        arrayLesson={this.state.arrayLesson}
         navigation={this.props.navigation}
         lesson={this.state.lesson3}/>
     )
