@@ -63,6 +63,9 @@ class ObjectRecognitionVC: UIViewController {
   var arrayOfVocabs: [String] = [] {
     didSet{
       self.titleLabel.text = self.arrayOfVocabs.count > 0 ? "Find \(self.arrayOfVocabs.first!)" : ""
+      if(arrayOfVocabs.count == 0 ){
+        self.timer?.invalidate()
+      }
     }
   }
   var session: AVCaptureSession!
@@ -71,7 +74,7 @@ class ObjectRecognitionVC: UIViewController {
   var readyTakePicture = false
   var btnTakePicture: UIButton = {
     var btn = UIButton.init(frame: .zero)
-            btn.setTitle("Click", for: .normal)
+//            btn.setTitle("Click", for: .normal)
 //    btn.setImage(#imageLiteral(resourceName: "takepicture"), for: .normal)
     btn.addTarget(self, action: #selector(btnTakePictureClicked(_:)), for: .touchUpInside)
     btn.isUserInteractionEnabled = true
@@ -225,7 +228,7 @@ class ObjectRecognitionVC: UIViewController {
     self.view.bringSubview(toFront: titleLabel)
     self.view.bringSubview(toFront: btnTakePicture)
     
-    activityIndicatorView = NVActivityIndicatorView(frame: CGRect.init(x: self.view.center.x, y: self.view.center.y, width: 30, height: 30), type: NVActivityIndicatorType(rawValue: 29)!)
+    activityIndicatorView = NVActivityIndicatorView(frame: CGRect.init(x: self.view.center.x, y: self.view.center.y, width: 50, height: 50), type: NVActivityIndicatorType(rawValue: 29)!)
     self.view.addSubview(activityIndicatorView!)
     activityIndicatorView?.isHidden = true
     

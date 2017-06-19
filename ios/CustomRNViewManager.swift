@@ -14,6 +14,8 @@ class CustomRNViewManager: RCTViewManager {
     return ObjectRecognitionVC().view
   }
   
+  
+  
   func setVocabs(_ vocabs: NSArray) {
     let vc = view().parentViewController
     if let orVC = vc, ((orVC as? ObjectRecognitionVC) != nil) {
