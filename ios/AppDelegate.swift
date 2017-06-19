@@ -30,7 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
      */
     
 //    let jsCodeLocation = URL(string: "index.iose")!
-    let jsCodeLocation = URL(string: "http://127.0.0.1:8081/index.ios.bundle?platform=ios&dev=true")!
+    let jsCodeLocation = URL(string: "http://192.168.99.34:8081/index.ios.bundle?platform=ios&dev=true")!
     
     /**
      * OPTION 2
