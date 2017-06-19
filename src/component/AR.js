@@ -35,8 +35,9 @@ export default class AR extends Component {
   
   constructor(props) {
     super(props)
+    console.log(props.navigation.state.params.arrayLesson)
     this.state = {
-      arrayLesson: props.arrayLesson,
+      arrayLesson: props.navigation.state.params.arrayLesson,
       view: false
     }
     
